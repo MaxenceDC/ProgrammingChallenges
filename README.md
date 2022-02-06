@@ -31,7 +31,7 @@ Here is my progress so far (tip: you can sort this list using *[Github sort cont
 | 020         | Image Converter                                     |     🟨     |    ❌    |
 | 021         | ID3 Reader                                          |     🟨     |    ❌    |
 | 022         | Sound Synthesis (sine, square, sawtooth...)         |     🟥     |    ❌    |
-| 022 - Bonus | Real Time MIDI Playback (with custom instruments)   |     🟪     |    ❌    |
+| 022 - Bonus | Real Time MIDI Playback (with custom instruments)   |     ​🟪     |    ❌    |
 | 023         | C++ IDE Plugin for Sublime (or Atom)                |     🟥     |    ❌    |
 | 024         | Simple Version Control (checkout, commit...)        |     🟨     |    ❌    |
 | 025         | Imageboard                                          |     🟩     |    ❌    |
