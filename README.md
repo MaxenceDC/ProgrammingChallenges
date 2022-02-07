@@ -6,7 +6,7 @@ This is my take on all the challenges of this image I found browsing the Interne
 
 Here is my progress so far (tip: you can sort this list using *[Github sort content](https://github.com/Mottie/GitHub-userscripts/wiki/GitHub-sort-content)*) :  
     
-| Num         | Name                                                | Difficulty | Progress |
+| Number      | Name                                                | Difficulty | Progress |
 |-------------|-----------------------------------------------------| :--------: | :------: |
 | 001         | Download Manager                                    |     🟨     |    ❌    |
 | 002         | Elastic Producer/Consumer Task Queue                |     🟨     |    ❌    |
@@ -36,3 +36,25 @@ Here is my progress so far (tip: you can sort this list using *[Github sort cont
 | 024         | Simple Version Control (checkout, commit...)        |     🟨     |    ❌    |
 | 025         | Imageboard                                          |     🟩     |    ❌    |
 | 026         | Password Manager                                    |     🟨     |    ❌    |
+| 027         | Torrent Client (CLI or GUI)                         |     🟥     |    ❌    |
+| 028         | Booru Client                                        |     🟥     |    ❌    |
+| 029         | Key Press Bot                                       |     🟨     |    ❌    |
+| 030         | IP or URL Obscurificator                            |     🟨     |    ❌    |
+| 031         | Radix Base Converter (Radix to Decimal)             |     🟨     |    ❌    |
+| 032         | Chan Aggregator                                     |     🟥     |    ❌    |
+| 032 - Bonus | 4ChanX and Archiving functionalities                |     🟥     |    ❌    |
+| 033         | File Encrypter and Uploader                         |     🟨     |    ❌    |
+| 034         | Auto-Save Text Editor (with date in the filename)   |     🟥     |    ❌    |
+| 035         | HSV Color Representation                            |     🟩     |    ❌    |
+| 036         | Window Manager                                      |     🟨     |    ❌    |
+| 037         | Basic Rational Database Software                    |     ​🟪     |    ❌    |
+| 038         | Pixel Editor                                        |     🟨     |    ❌    |
+| 039         | Trivial File Transfer Protocol (TFTP)               |     🟨     |    ❌    |
+| 040         | Markdown (HTML and/or XML)                          |     🟨     |    ❌    |
+| 041         | IP Tracking Visualization                           |     🟨     |    ❌    |
+| 042         | Port Scanner                                        |     🟩     |    ❌    |
+| 043         | Old School Demo Effect (Plasma, Tunnel...)          |     🟩     |    ❌    |
+| 044         | FizzBuzz                                            |     🟩     |    ❌    |
+| 044 - Bonus | FizzBuzz written in Assembly                        |     🟨     |    ❌    |
+| 045         | RPN Calculator                                      |     🟩     |    ❌    |
+| 046         | Count occurrences of character (Unicode Support)    |     🟩     |    ❌    |
