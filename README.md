@@ -113,7 +113,7 @@ Here is my progress so far (tip: you can sort this list using *[Github sort cont
 | 095           | Real-Time Fast Fourier Transform Spectrum Visualizer  |     🟥     |    ❌    |
 | 096           | Complimentary Color Generator based on an Input Color |     🟩     |    ❌    |
 | 097           | 5-Color Scheme Generator from any input image         |     🟨     |    ❌    |
-| 098           | General Lambert's-Problem Solver (🚀)                 |     🟩     |    ❌    |
+| 098           | General Lambert's-Problem Solver 🚀                   |     🟩     |    ❌    |
 | 099           | TI-86 Emulator                                        |     🟥     |    ❌    |
 | 099 - Bonus   | TI-86 Emulator with Option to Create Programs         |     🟥     |    ❌    |
 | 100           | N-Body Simulator with Merging Particles               |     🟨     |    ❌    |
