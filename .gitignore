@@ -1,2 +1,8 @@
+# VSCode IDE
 .vscode/
 .history/
+
+# Rust
+**/target/
+**/Cargo.lock
+**/*.rs.bk

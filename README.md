@@ -2,7 +2,7 @@
 
 ![Image showing all the 145 challenges](Images/challenges.png)   
 
-This is my take on all the challenges of this image I found browsing the Internet. It seemed really interesting for me to try and beat some challenges and I decided to create this repo to write some code for those challenges. I will be solving those challenges with the languages I think fit the most for me.
+This is my take on all the challenges of this image I found browsing the Internet. It seemed really interesting for me to try and beat some challenges and I decided to create this repo to write some code for those challenges. I will be solving those challenges in no pre-defined order, with the languages I think fit the most for me.
 
 Here is my progress so far (tip: you can sort this list using *[Github sort content](https://github.com/Mottie/GitHub-userscripts/wiki/GitHub-sort-content)*) :  
       
@@ -54,7 +54,7 @@ Here is my progress so far (tip: you can sort this list using *[Github sort cont
 | 041           | IP Tracking Visualization                             |     🟨     |    ❌    | Practical                     |
 | 042           | Port Scanner                                          |     🟩     |    ❌    | Practical                     |
 | 043           | Old School Demo Effect (Plasma, Tunnel...)            |     🟩     |    ❌    | Practical                     |
-| 044           | FizzBuzz                                              |     🟩     |    ❌    | Algorithmic                   |
+| 044           | [FizzBuzz](./Challenges/Algorithmic/44-fizzbuzz/)        |     🟩     |    ❌    | Algorithmic                   |
 | 044 - Bonus   | FizzBuzz written in Assembly                          |     🟨     |    ❌    | Algorithmic                   |
 | 045           | RPN Calculator                                        |     🟩     |    ❌    | Algorithmic                   |
 | 046           | Count occurrences of character (Unicode Support)      |     🟩     |    ❌    | Algorithmic                   |
@@ -163,3 +163,8 @@ Here is my progress so far (tip: you can sort this list using *[Github sort cont
 | 143           | Bayesian Filter                                       |     🟨     |    ❌    | Practical                     |
 | 144           | WMS Viewer (not Web-Based)                            |     🟥     |    ❌    | Practical                     |
 | 145           | ASCII Digital Clock                                   |     🟩     |    ❌    | Emulation/Modeling            |
+
+## Order of Projects
+
+This is the list of projects in the order I completed/started them :
+1. [n°44 - FizzBuzz](./Challenges/Algorithmic/44-fizzbuzz/)
