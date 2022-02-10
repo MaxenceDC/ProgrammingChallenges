@@ -34,9 +34,9 @@ an argument and returns nothing.
 fn fizzbuzz(n: u32) {}
 ```
 
-Then, I write a simple for loop inside of this function, which loop over within 
-a range from 1 to n, included. To specify that I want the n to be included, I 
-use the `..=` syntax.
+Then, I write a simple for loop inside of this function, which loops over a
+range from 1 to n, included. To specify that I want the n to be included, I use
+the `..=` syntax.
 
 ```rs
 for i in 1..=n {
