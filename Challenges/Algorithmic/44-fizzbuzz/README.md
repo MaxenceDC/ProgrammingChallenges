@@ -145,7 +145,7 @@ exits the program.
 
 ```rs
 let mut input = String::new();
-        print!("Please enter a number: ");
+        println!("Please enter a number: ");
         io::stdin()
             .read_line(&mut input)
             .expect("Failed to read line from the stdin");
@@ -174,7 +174,7 @@ match input.parse::<u32>() {
         fizzbuzz(i);
         break 'take_input;
     }
-    Err(..) => println!("Please enter a number!"),
+    Err(..) => println!("Please enter a valid number!"),
 };
 ```
 
@@ -188,7 +188,7 @@ use std::io;
 fn main() {
     'take_input: loop {
         let mut input = String::new();
-        print!("Please enter a number: ");
+        println!("Please enter a number: ");
         io::stdin()
             .read_line(&mut input)
             .expect("Failed to read line from the stdin");
@@ -198,7 +198,7 @@ fn main() {
                 fizzbuzz(i);
                 break 'take_input;
             }
-            Err(..) => println!("Please enter a number!"),
+            Err(..) => println!("Please enter a valid number!"),
         };
     }
 }

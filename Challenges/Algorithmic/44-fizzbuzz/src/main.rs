@@ -5,8 +5,8 @@ fn main() {
     // valid integer
     'take_input: loop {
         // Declare the new variable input and prompts the user for an input
+        println!("Please enter a number: ");
         let mut input = String::new();
-        print!("Please enter a number: ");
         // Reads the input and stores it in the mutable input variable
         io::stdin()
             .read_line(&mut input)
@@ -23,7 +23,7 @@ fn main() {
                 fizzbuzz(i);
                 break 'take_input;
             }
-            Err(..) => println!("Please enter a number!"),
+            Err(..) => println!("Please enter a valid number!"),
         };
     }
 }
