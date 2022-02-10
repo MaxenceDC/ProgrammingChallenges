@@ -54,7 +54,7 @@ Here is my progress so far (tip: you can sort this list using *[Github sort cont
 | 041           | IP Tracking Visualization                             |     🟨     |    ❌    | Practical                     |
 | 042           | Port Scanner                                          |     🟩     |    ❌    | Practical                     |
 | 043           | Old School Demo Effect (Plasma, Tunnel...)            |     🟩     |    ❌    | Practical                     |
-| 044           | [FizzBuzz](./Challenges/Algorithmic/44-fizzbuzz/)     |     🟩     |    ❌    | Algorithmic                   |
+| 044           | [FizzBuzz](./Challenges/Algorithmic/44-fizzbuzz/)     |     🟩     |    ✅    | Algorithmic                   |
 | 044 - Bonus   | FizzBuzz written in Assembly                          |     🟨     |    ❌    | Algorithmic                   |
 | 045           | RPN Calculator                                        |     🟩     |    ❌    | Algorithmic                   |
 | 046           | Count occurrences of character (Unicode Support)      |     🟩     |    ❌    | Algorithmic                   |
@@ -167,4 +167,4 @@ Here is my progress so far (tip: you can sort this list using *[Github sort cont
 ## Order of Projects
 
 This is the list of projects in the order I completed/started them :
-1. [n°44 - FizzBuzz](./Challenges/Algorithmic/44-fizzbuzz/)
+1. [x] [n°44 - FizzBuzz](./Challenges/Algorithmic/44-fizzbuzz/)
