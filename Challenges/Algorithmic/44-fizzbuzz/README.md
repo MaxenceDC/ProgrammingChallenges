@@ -20,7 +20,28 @@ According to [this](https://wikipedia.org/wiki/Fizz_Buzz) Wikipedia article,
 FizzBuzz is a game for children to learn about counting. The rules are simple:
 you start by counting up indefinitely, and if you see a number that is divisible
 by 3, you say "Fizz!" instead, when it's divisible by 5, you say "Buzz!",
-and when it's divisible by both, say "FizzBuzz!" The article also states that
+and when it's divisible by both, say "FizzBuzz!".
+
+For an example, if I count from 1 to 15, I should get:
+```
+1
+2
+Fizz
+4
+Buzz
+Fizz
+7
+8
+Fizz
+Buzz
+11
+Fizz
+13
+14
+FizzBuzz
+```
+
+The article also states that
 writing an implementation of this game is widely asked during programming
 interviews, to analyze the coding style and habits of the interviewee. So, let's
 start with the code!
