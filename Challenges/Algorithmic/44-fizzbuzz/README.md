@@ -86,13 +86,13 @@ for i in 1..=n {
 
 And there we go! We have a fully functional FizzBuzz function! We just need to
 call it from the main function, and we're done! To run the code, simply execute
-the following command: `cargo run`.
-
+the following command: `cargo run`.     
+                                        
 ### Final code
 
 ```rs
 fn main() {
-    fizzbuzz(150);
+    fizzbuzz(100);
 }
 
 fn fizzbuzz(n: u32) {
@@ -115,6 +115,108 @@ fn fizzbuzz(n: u32) {
 You can see a commented version of this code inside `main.rs` file located in
 the `src` folder.
 
-## Bonus : Taking user input
+## Going further : Taking user input
 
-WIP
+To take user input in Rust, the most basic way is to use the `std::io` module.
+So the first line of my code is `use std::io;`, which imports the standard
+input/output.
+
+```rs
+use std::io;
+```
+
+Then, I create a new infinite loop inside the `main()` function that I label as
+`take_input`. This loop will be used to take user input, until the said input is
+a positive integer.
+
+```rs
+fn main() {
+    'take_input: loop {}
+}
+```
+
+Inside this loop, I start by creating a mutable variable named `input` that
+holds a new empty string. I then ask the user to enter a number and I use the
+`io::stdin()` function to start taking user input and call the `read_line()`
+method on it. This method takes a mutable reference to a string, and binds the
+content of what the user typed to the given mutable variable. In case there is
+an error while reading from the standard input, it calls the except method and
+exits the program.
+
+```rs
+let mut input = String::new();
+        print!("Please enter a number: ");
+        io::stdin()
+            .read_line(&mut input)
+            .expect("Failed to read line from the stdin");
+```
+
+Then, to remove the new line character from the string, I use the `trim()`
+method which removes any whitespace characters from the beginning and end of the
+string and returns a **str**, not a String. Because it returns a str, I need to
+use the `let` keyword to
+[shadow](https://en.wikipedia.org/wiki/Variable_shadowing) the variable `input`
+and assign it to the result of the `trim()` method.
+
+```rs
+let input = input.trim();
+```
+
+Then, I check if the input is a good number. To do that, I match the result of
+the `parse()` method on the `input` string. If it's a `Ok`, then it's a good
+number, and I can call the fizzbuzz function with the number and break the loop.
+If it's a `Err`, then it means that the input is invalid and the programs tells
+the user to try again.
+
+```rs
+match input.parse::<u32>() {
+    Ok(i) => {
+        fizzbuzz(i);
+        break 'take_input;
+    }
+    Err(..) => println!("Please enter a number!"),
+};
+```
+
+And it's done! The program will now start by asking the user to enter a number,
+and will the execute the fizzbuzz function with the number!
+
+### Final code
+```rs
+use std::io;
+
+fn main() {
+    'take_input: loop {
+        let mut input = String::new();
+        print!("Please enter a number: ");
+        io::stdin()
+            .read_line(&mut input)
+            .expect("Failed to read line from the stdin");
+        let input = input.trim();
+        match input.parse::<u32>() {
+            Ok(i) => {
+                fizzbuzz(i);
+                break 'take_input;
+            }
+            Err(..) => println!("Please enter a number!"),
+        };
+    }
+}
+
+fn fizzbuzz(n: u32) {
+    for i in 1..=n {
+        if i % 3 != 0 && i % 5 != 0 {
+            println!("{}", i);
+            continue;
+        }
+        if i % 3 == 0 {
+            print!("Fizz");
+        }
+        if i % 5 == 0 {
+            print!("Buzz");
+        }
+        println!("!");
+    }
+}
+
+```

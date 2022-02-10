@@ -1,11 +1,40 @@
+use std::io;
+
 fn main() {
-    fizzbuzz(150);
+    // Creates a loop labeled take_input, which will run until the input is a
+    // valid integer
+    'take_input: loop {
+        // Declare the new variable input and prompts the user for an input
+        let mut input = String::new();
+        print!("Please enter a number: ");
+        // Reads the input and stores it in the mutable input variable
+        io::stdin()
+            .read_line(&mut input)
+            .expect("Failed to read line from the stdin");
+        // Redeclares the input variable as a str and trims it
+        let input = input.trim();
+        // Matches the input as a positive integer.
+        // If the input is valid, the fizzbuzz function is called and the loop
+        // labeled take_input breaks
+        // If the input is not a valid integer, it will print an error message
+        // and continue the loop to prompt the user for a new input
+        match input.parse::<u32>() {
+            Ok(i) => {
+                fizzbuzz(i);
+                break 'take_input;
+            }
+            Err(..) => println!("Please enter a number!"),
+        };
+    }
 }
 
 /// Prints out all the numbers from 1 to n (inclusive)
+///
 /// If the number is divisible by 3, prints "Fizz" instead
+///
 /// If the number is divisible by 5, prints "Buzz" instead
-/// If the number is divisible by both 3 and 5, prints "FizzBuzz".
+///  
+/// If the number is divisible by both 3 and 5, prints "FizzBuzz".  
 ///
 /// # Arguments
 /// * `n` - The number to count up to
