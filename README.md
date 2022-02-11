@@ -5,7 +5,7 @@
 This is my take on all the challenges of this image I found browsing the Internet. It seemed really interesting for me to try and beat some challenges and I decided to create this repo to write some code for those challenges. I will be solving those challenges in no pre-defined order, with the languages I think fit the most for me.
 
 Here is my progress so far (tip: you can sort this list using *[Github sort content](https://github.com/Mottie/GitHub-userscripts/wiki/GitHub-sort-content)*) :  
-      
+
 | Number        | Name                                                                      | Difficulty | Progress | Category                      |
 |---------------|---------------------------------------------------------------------------|:----------:|:--------:|-------------------------------|
 | 001           | Download Manager                                                          |     🟨     |    ❌     | Practical                     |
