@@ -8,9 +8,10 @@ other languages before.
 ## Starting the challenge
 
 First, I create a new directory that I name `44-fizzbuzz` inside the
-`Challenges` directory. To create a new Rust project, I use the `cargo new`
-command and I give it the name of my project, which is `fizzbuzz`. I can start
-writing code in the `main.rs` file, located inside the `src` directory.  
+`Challenges/Algorithmic` directory. To create a new Rust project, I use the
+`cargo new` command and I give it the name of my project, which is `fizzbuzz`.
+I can start writing code in the `main.rs` file, located inside the `src`
+directory.  
 
 I then document myself on what a FizzBuzz program is, and how it works. I've
 already programmed a FizzBuzz program before, but it's always good to have a

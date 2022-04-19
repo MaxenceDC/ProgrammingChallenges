@@ -11,7 +11,7 @@ Here is my progress so far (tip: you can sort this list using *[Github sort cont
 | 001           | Download Manager                                                          |     🟨     |    ❌     | Practical                     |
 | 002           | Elastic Producer/Consumer Task Queue                                      |     🟨     |    ❌     | Practical                     |
 | 003           | IRC Client                                                                |     🟨     |    ❌     | Practical                     |
-| 004           | [Markov Chain Sentence Generator](./Challenges/Practical/4-markov_chain/) |     🟩     |    ❌     | Practical                     |
+| 004           | [Markov Chain Sentence Generator](./Challenges/Practical/4-markov_chain/) |     🟩     |    ⏳     | Practical                     |
 | 005           | English Sentence Parser                                                   |     🟨     |    ❌     | Practical                     |
 | 006           | MIDI Player & Editor                                                      |     🟨     |    ❌     | Practical                     |
 | 007           | Stock Market Simulator (Yahoo! Data)                                      |     🟨     |    ❌     | Practical                     |
@@ -54,7 +54,7 @@ Here is my progress so far (tip: you can sort this list using *[Github sort cont
 | 041           | IP Tracking Visualization                                                 |     🟨     |    ❌     | Practical                     |
 | 042           | Port Scanner                                                              |     🟩     |    ❌     | Practical                     |
 | 043           | Old School Demo Effect (Plasma, Tunnel...)                                |     🟩     |    ❌     | Practical                     |
-| 044           | [FizzBuzz](./Challenges/Algorithmic/44-fizzbuzz/)                         |     🟩     |    ❌     | Algorithmic                   |
+| 044           | [FizzBuzz](./Challenges/Algorithmic/44-fizzbuzz/)                         |     🟩     |    ✅     | Algorithmic                   |
 | 044 - Bonus   | FizzBuzz written in Assembly                                              |     🟨     |    ❌     | Algorithmic                   |
 | 045           | RPN Calculator                                                            |     🟩     |    ❌     | Algorithmic                   |
 | 046           | Count occurrences of character (Unicode Support)                          |     🟩     |    ❌     | Algorithmic                   |
