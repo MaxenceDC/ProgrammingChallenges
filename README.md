@@ -1,6 +1,8 @@
 # Programming Challenges v4.0
 
-![Image showing all the 145 challenges](Images/challenges.png)   
+![Image showing all the 145 challenges](Images/challenges.png)
+
+[Source](https://github.com/JeremyJaydan/programming-challenges)
 
 This is my take on all the challenges of this image I found browsing the Internet. It seemed really interesting for me to try and beat some challenges and I decided to create this repo to write some code for those challenges. I will be solving those challenges in no pre-defined order, with the languages I think fit the most for me.
 
