@@ -1,8 +1,8 @@
 # n°44 - FizzBuzz
 
 What better way to start than with the classic programming challenge, FizzBuzz!  
-I will be writing the code with Rust, as I am currently learning it. It should 
-be pretty simple, because I already coded a FizzBuzz program before in some 
+I will be writing the code with Rust, as I am currently learning it. It should
+be pretty simple, because I already coded a FizzBuzz program before in some
 other languages before.
 
 ## Starting the challenge
@@ -24,7 +24,8 @@ by 3, you say "Fizz!" instead, when it's divisible by 5, you say "Buzz!",
 and when it's divisible by both, say "FizzBuzz!".
 
 For an example, if I count from 1 to 15, I should get:
-```
+
+```text
 1
 2
 Fizz
@@ -49,7 +50,7 @@ start with the code!
 
 ## Solving the challenge
 
-I start by creating a function named `fizzbuzz` that takes a positive number as 
+I start by creating a function named `fizzbuzz` that takes a positive number as
 an argument and returns nothing.
 
 ```rs
@@ -71,7 +72,7 @@ Inside this for loop, I first check if the current number is not a multiple of
 division. If the remainder is 0, then the number is a multiple of the number I'm
 checking, else, it's not. For example, `9 % 3` returns `0`, so `9` is a multiple
 of `3`. In my code, if the number is not a multiple of 3 or 5, it just prints
-the said number and continues over to the next iteration, without doing anything 
+the said number and continues over to the next iteration, without doing anything
 else.
 
 ```rs
@@ -108,8 +109,8 @@ for i in 1..=n {
 
 And there we go! We have a fully functional FizzBuzz function! We just need to
 call it from the main function, and we're done! To run the code, simply execute
-the following command: `cargo run`.     
-                                        
+the following command: `cargo run`.
+
 ### Final code
 
 ```rs
@@ -203,7 +204,8 @@ match input.parse::<u32>() {
 And it's done! The program will now start by asking the user to enter a number,
 and will the execute the fizzbuzz function with the number!
 
-### Final code
+### Final improved code
+
 ```rs
 use std::io;
 
@@ -240,5 +242,4 @@ fn fizzbuzz(n: u32) {
         println!("!");
     }
 }
-
 ```

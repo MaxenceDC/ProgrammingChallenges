@@ -170,4 +170,4 @@ Here is my progress so far (tip: you can sort this list using *[Github sort cont
 
 This is the list of projects in the order I completed/started them :
 1. [n°44 - FizzBuzz](./Challenges/Algorithmic/44-fizzbuzz/)
-2. [n°4 - Markov Chain Sentence Generator](./Challenges/Algorithmic/4-markov-chain/)
+2. [n°4 - Markov Chain Sentence Generator](./Challenges/Algorithmic/4-markov_chain/)

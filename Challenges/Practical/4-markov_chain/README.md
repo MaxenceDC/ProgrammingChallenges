@@ -12,4 +12,10 @@ As usual, I create my new Rust project with `cargo new`. I name this project
 `4-markov_chain` and I start by opening the `main.rs` file using my IDE.
 
 I First need to document myself on Markov Chains. A quick web search leads me to
-[this](https://en.wikipedia.org/wiki/Markov_chain) Wikipedia page.
+[this](https://en.wikipedia.org/wiki/Markov_chain) Wikipedia page. Reading
+through the article, I learn that there are two main types of Markov Chains:
+Discrete and Continuous. As I will be generating a sentence consisting of
+discrete words, I will need to implement a *Discret-Time Markov Chain Sentence
+Generator*.
+
+## Solving the challenge
