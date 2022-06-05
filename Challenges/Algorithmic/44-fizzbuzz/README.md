@@ -167,10 +167,10 @@ exits the program.
 
 ```rs
 let mut input = String::new();
-        println!("Please enter a number: ");
-        io::stdin()
-            .read_line(&mut input)
-            .expect("Failed to read line from the stdin");
+println!("Please enter a number: ");
+io::stdin()
+    .read_line(&mut input)
+    .expect("Failed to read line from the stdin");
 ```
 
 Then, to remove the new line character from the string, I use the `trim()`
