@@ -29,7 +29,7 @@ fn main() {
 }
 
 /// Prints out all the numbers from 1 to n (inclusive)
-///
+/// 
 /// If the number is divisible by 3, prints "Fizz" instead
 ///
 /// If the number is divisible by 5, prints "Buzz" instead

@@ -43,10 +43,9 @@ Fizz
 FizzBuzz
 ```
 
-The article also states that
-writing an implementation of this game is widely asked during programming
-interviews, to analyze the coding style and habits of the interviewee. So, let's
-start with the code!
+The article also states that writing an implementation of this game is widely
+asked during programming interviews, to analyze the coding style and habits of
+the interviewee. So, let's start with the code!
 
 ## Solving the challenge
 

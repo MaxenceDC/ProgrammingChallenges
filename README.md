@@ -4,9 +4,14 @@
 
 [Source](https://github.com/JeremyJaydan/programming-challenges)
 
-This is my take on all the challenges of this image I found browsing the Internet. It seemed really interesting for me to try and beat some challenges and I decided to create this repo to write some code for those challenges. I will be solving those challenges in no pre-defined order, with the languages I think fit the most for me.
+This is my take on all the challenges of this image I found browsing the
+Internet. It seemed really interesting for me to try and beat some challenges
+and I decided to create this repo to write some code for those challenges. I
+will be solving those challenges in no pre-defined order, with the languages I
+think fit the most for me.
 
-Here is my progress so far (tip: you can sort this list using *[Github sort content](https://github.com/Mottie/GitHub-userscripts/wiki/GitHub-sort-content)*) :  
+Here is my progress so far (tip: you can sort this list using
+_[Github sort content](https://github.com/Mottie/GitHub-userscripts/wiki/GitHub-sort-content)_) :  
 
 | Number        | Name                                                                      | Difficulty | Progress | Category                      |
 |---------------|---------------------------------------------------------------------------|:----------:|:--------:|-------------------------------|
@@ -33,7 +38,7 @@ Here is my progress so far (tip: you can sort this list using *[Github sort cont
 | 020           | Image Converter                                                           |     🟨     |    ❌     | Practical                     |
 | 021           | ID3 Reader                                                                |     🟨     |    ❌     | Practical                     |
 | 022           | Sound Synthesis (sine, square, sawtooth...)                               |     🟥     |    ❌     | Practical                     |
-| 022 - Bonus   | Real Time MIDI Playback (with custom instruments)                         |    ​🟪     |    ❌     | Practical                     |
+| 022 - Bonus   | Real Time MIDI Playback (with custom instruments)                         |     🟪     |    ❌     | Practical                     |
 | 023           | C++ IDE Plugin for Sublime (or Atom)                                      |     🟥     |    ❌     | Practical                     |
 | 024           | Simple Version Control (checkout, commit...)                              |     🟨     |    ❌     | Practical                     |
 | 025           | Imageboard                                                                |     🟩     |    ❌     | Practical                     |
@@ -49,7 +54,7 @@ Here is my progress so far (tip: you can sort this list using *[Github sort cont
 | 034           | Auto-Save Text Editor (with date in the filename)                         |     🟥     |    ❌     | Practical                     |
 | 035           | HSV Color Representation                                                  |     🟩     |    ❌     | Practical                     |
 | 036           | Window Manager                                                            |     🟨     |    ❌     | Practical                     |
-| 037           | Basic Rational Database Software                                          |    ​🟪     |    ❌     | Practical                     |
+| 037           | Basic Rational Database Software                                          |     🟪     |    ❌     | Practical                     |
 | 038           | Pixel Editor                                                              |     🟨     |    ❌     | Practical                     |
 | 039           | Trivial File Transfer Protocol (TFTP)                                     |     🟨     |    ❌     | Practical                     |
 | 040           | Markdown (HTML and/or XML)                                                |     🟨     |    ❌     | Practical                     |
@@ -93,7 +98,7 @@ Here is my progress so far (tip: you can sort this list using *[Github sort cont
 | 076           | Convolutional Neural Network (using TensorFlow, e.g.)                     |     🟨     |    ❌     | Artificial Intelligence       |
 | 077           | Convolutional Neural Network (from scratch)                               |     🟥     |    ❌     | Artificial Intelligence       |
 | 078           | "Hello World" on a Virtual Machine                                        |     🟨     |    ❌     | Compiler/Interpreter/Debugger |
-| 079           | Basic Bootloader (with extended file system)                              |    ​🟪     |    ❌     | Compiler/Interpreter/Debugger |
+| 079           | Basic Bootloader (with extended file system)                              |     🟪     |    ❌     | Compiler/Interpreter/Debugger |
 | 080           | Terminal Shell (Executable Binaries, Pipe System...)                      |     🟨     |    ❌     | Compiler/Interpreter/Debugger |
 | 080 - Bonus   | Terminal Shell but GUI                                                    |     🟥     |    ❌     | Compiler/Interpreter/Debugger |
 | 081           | HTML & JavaScript Debugger                                                |     🟨     |    ❌     | Compiler/Interpreter/Debugger |
@@ -131,7 +136,7 @@ Here is my progress so far (tip: you can sort this list using *[Github sort cont
 | 110           | Dragon Quest (Basic RPG Engine)                                           |     🟥     |    ❌     | Games                         |
 | 111           | Rock Paper Scissors                                                       |     🟩     |    ❌     | Games                         |
 | 112           | First-Person Engine in OpenGL                                             |     🟥     |    ❌     | Games                         |
-| 112 - Bonus   | First-Person Engine in OpenGL, with VR support                            |    ​🟪     |    ❌     | Games                         |
+| 112 - Bonus   | First-Person Engine in OpenGL, with VR support                            |     🟪     |    ❌     | Games                         |
 | 113           | Shuffle a Deck of Cards, with visuals                                     |     🟨     |    ❌     | Games                         |
 | 114           | Simulation of a Game of Tag (with Multi-Agent System)                     |     🟨     |    ❌     | Games                         |
 | 115           | Wolfenstein Clone (FPS, 2D that appears to be 3D)                         |     🟥     |    ❌     | Games                         |
@@ -169,5 +174,6 @@ Here is my progress so far (tip: you can sort this list using *[Github sort cont
 ## Order of Projects
 
 This is the list of projects in the order I completed/started them :
+
 1. [n°44 - FizzBuzz](./Challenges/Algorithmic/44-fizzbuzz/)
 2. [n°4 - Markov Chain Sentence Generator](./Challenges/Algorithmic/4-markov_chain/)
