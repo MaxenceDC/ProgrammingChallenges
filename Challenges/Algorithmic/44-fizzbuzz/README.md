@@ -1,6 +1,6 @@
 # n°44 - FizzBuzz
 
-What better way to start than with the classic programming challenge, FizzBuzz!  
+What better way to start than with the classic programming challenge, FizzBuzz!
 I will be writing the code with Rust, as I am currently learning it. It should
 be pretty simple, because I already coded a FizzBuzz program before in some
 other languages before.
@@ -11,11 +11,11 @@ First, I create a new directory that I name `44-fizzbuzz` inside the
 `Challenges/Algorithmic` directory. To create a new Rust project, I use the
 `cargo new` command and I give it the name of my project, which is `fizzbuzz`.
 I can start writing code in the `main.rs` file, located inside the `src`
-directory.  
+directory.
 
 I then document myself on what a FizzBuzz program is, and how it works. I've
 already programmed a FizzBuzz program before, but it's always good to have a
-description of what the program should do.  
+description of what the program should do.
 
 According to [this](https://wikipedia.org/wiki/Fizz_Buzz) Wikipedia article,
 FizzBuzz is a game for children to learn about counting. The rules are simple:
@@ -190,7 +190,7 @@ number, and I can call the fizzbuzz function with the number and break the loop.
 If it's a `Err`, then it means that the input is invalid and the programs tells
 the user to try again.
 
-```rs
+```rust
 match input.parse::<u32>() {
     Ok(i) => {
         fizzbuzz(i);

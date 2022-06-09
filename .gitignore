@@ -1,6 +1,7 @@
 # VSCode IDE
 .vscode/
 .history/
+*.code-workspace
 
 # Rust
 **/target/

@@ -21,12 +21,20 @@ another specific word. It can seem a bit complicated at first, but you will
 hopefully get the hang of it.
 
 So, what does my progam needs to do? Well, it's a sentence generator, so it
-needs to create a somewhat logic sentence with the use of a Markov Chain
-(spoiler alert, it won't...). For this, the program will take a sentence as
-input and will generate a new sentence (a Markov Chain) based on this input.
+needs to create a somewhat _logic_ sentence with the use of a Markov Chain
+(spoiler alert, it won't be syntaxically correct...). For this, the program will
+take a sentence as input and will generate a new sentence (a Markov Chain) based
+on this input.
 
 As usual, I create my new Rust project with `cargo new`. I name the folder
 `4-markov_chain` and I start by opening the `main.rs` file in my IDE.
 
 ## Solving the challenge
 
+I believe I will need the rand module to generate random numbers. Let's import
+it at the top of the file (and I don't forget to add the `rand` crate to the
+`Cargo.toml` file).
+
+```rs
+use rand::Rng;
+```

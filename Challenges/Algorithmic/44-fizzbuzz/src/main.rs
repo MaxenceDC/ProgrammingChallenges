@@ -4,7 +4,7 @@ fn main() {
     // Creates a loop labeled take_input, which will run until the input is a
     // valid integer
     'take_input: loop {
-        // Declare the new variable input and prompts the user for an input
+        // Declares the new variable input and prompts the user for an input
         println!("Please enter a number: ");
         let mut input = String::new();
         // Reads the input and stores it in the mutable input variable
