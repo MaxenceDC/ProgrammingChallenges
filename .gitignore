@@ -7,3 +7,7 @@
 **/target/
 **/Cargo.lock
 **/*.rs.bk
+**/.rustfmt.toml
+
+# Markov Chain
+**/4-markov_chain/tests/

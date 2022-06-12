@@ -1,15 +1,23 @@
 use rand::{
   distributions::WeightedIndex,
   prelude::{Distribution, SliceRandom},
+  thread_rng,
 };
 use regex::Regex;
-use std::{collections::HashMap, env, fs, path::PathBuf, process};
+use std::{
+  collections::HashMap,
+  env::args,
+  fs::read_to_string,
+  io::{Error, ErrorKind},
+  path::PathBuf,
+  process::exit,
+};
 
 type Transitions = HashMap<String, HashMap<String, usize>>;
 type States = Vec<String>;
 
 const HELP_MESSAGE: &str = "Markov Chain Sentence Generator - A quick tool used to generate sentences based on an input using a discreet Markov chain algorithm.
-    
+ 
 Usage: markov_chain_sentence_generator (flags) [path] [size]
 
 Flags/Parameters :
@@ -28,7 +36,7 @@ struct SentenceMarkovChain {
 }
 
 impl SentenceMarkovChain {
-  fn new(text: String) -> SentenceMarkovChain {
+  pub fn new(text: String) -> Result<Self, Error> {
     // A regex matching everything that is not a letter (can have diacritics),
     // a punctuation sign, or a space.
     let unwanted_chars = Regex::new(r"[^A-Za-zÀ-ÖØ-öø-ÿ\s!?\.,;-]").unwrap();
@@ -42,53 +50,53 @@ impl SentenceMarkovChain {
       .map(String::from)
       .collect();
 
-    // Creates a default hashmap of all the states and their probability
-    // with default value 0.
-    let state = {
-      let mut state = HashMap::new();
-      states.iter().for_each(|x| {
-        state.insert(x.to_owned(), 0);
-      });
+    // If there are no words, returns an error.
+    if states.is_empty() {
+      return Err(Error::new(
+        ErrorKind::Other,
+        "The input text does not contain any words.",
+      ));
+    }
 
-      state
-    };
-
-    // Initializes all the transitions probability using the previously
-    // created `state` hashmap.
-    let mut transitions: Transitions = HashMap::new();
-    states.iter().for_each(|x| {
-      transitions.insert(x.to_owned(), state.clone());
-    });
-
-    // Creates a vector of states shifted to the left, to easily find the
-    // word following another word.
-    let shifted_states: States = {
+    // Creates a vector of states shifted to the left, to easily find the word
+    // following another word.
+    let next_states: States = {
       let mut shifted = states.clone();
       shifted.rotate_left(1);
-
       shifted
     };
 
-    // Inserts the probability of each possible state for each parent state.
-    for (i, w) in states.iter().enumerate() {
-      let next = String::from(&shifted_states[i]);
-      *transitions.get_mut(w).unwrap().entry(next).or_insert(0) += 1;
-    }
+    let transitions: Transitions = {
+      let mut transitions: Transitions = HashMap::new();
+      for (i, word) in states.iter().enumerate() {
+        let next = String::from(&next_states[i]);
+        if transitions.get(word).eq(&None) {
+          transitions.insert(String::from(word), HashMap::new());
+        }
+
+        if transitions[word].get(&next).eq(&None) {
+          transitions.get_mut(word).unwrap().insert(next, 1);
+        } else {
+          *transitions.get_mut(word).unwrap().entry(next).or_default() += 1;
+        }
+      }
+      transitions
+    };
 
     // Removes all duplicate words in the `states` vector.
     states.sort();
     states.dedup();
 
     // Returns the final SentenceMarkovChain!
-    SentenceMarkovChain {
+    Ok(Self {
       states,
       transitions,
-    }
+    })
   }
 
   fn generate_sentence(&self, n: usize) -> String {
     // Initializes a random number generator.
-    let mut rng = rand::thread_rng();
+    let mut rng = thread_rng();
 
     // Choses a random word from all the possible states to use it as the
     // first word.
@@ -123,8 +131,7 @@ impl SentenceMarkovChain {
         String::from(&weighted_words[distribution.sample(&mut rng)].0);
 
       // Adds a whitespace followed by the chosen word to the result sentence.
-      sentence.push(' ');
-      sentence.push_str(current_word.as_str());
+      sentence.push_str(format!(" {current_word}").as_str());
     }
 
     // Returns the final sentence!
@@ -132,37 +139,15 @@ impl SentenceMarkovChain {
   }
 }
 
-fn main() {
-  // Gets the user-provided parameters.
-  let parameters = handle_args();
-
-  // Creates a Sentence Markov Chain based on the content of the file and
-  // generates a sentence of `n` words
-  let file = fs::read_to_string(parameters.input_file);
-  let input_text = match file {
-    Ok(content) => content,
-    Err(error) => {
-      eprintln!("There was a problem trying to read the file: {}", error);
-      process::exit(1)
-    }
-  };
-  let markov_chain = SentenceMarkovChain::new(input_text);
-  let markov_sentence =
-    markov_chain.generate_sentence(parameters.sentence_size);
-
-  // Prints the resulting sentence!
-  println!("{markov_sentence}");
-}
-
-fn handle_args() -> Parameters {
+fn get_args() -> Parameters {
   // Stores the arguments provided by the user in a Vector of Strings
-  let args = env::args().collect::<Vec<String>>();
+  let args = args().collect::<Vec<String>>();
 
   if args.contains(&String::from("--help"))
     || args.contains(&String::from("-h"))
   {
     println!("{HELP_MESSAGE}");
-    process::exit(0)
+    exit(0)
   }
 
   // If no arguments are provided or the arguments provided are wrong, prints
@@ -170,7 +155,7 @@ fn handle_args() -> Parameters {
   // (exit code 22 means "Invalid argument")
   if args.len() < 2 || args.len() > 3 {
     println!("{HELP_MESSAGE}");
-    process::exit(22)
+    exit(22)
   }
 
   // Initializes the `path` parameter, and exits if the file is inexistant.
@@ -178,7 +163,7 @@ fn handle_args() -> Parameters {
   let path = PathBuf::from(&args[1]);
   if !path.exists() || !path.is_file() {
     eprintln!("File `{}` was not found!", path.display());
-    process::exit(2)
+    exit(2)
   }
 
   // Initializes the `size` parameter, and exits if the value is unvalid.
@@ -186,7 +171,7 @@ fn handle_args() -> Parameters {
   let size = &args[2].parse::<usize>().unwrap_or_default();
   if size.eq(&0) {
     eprintln!("The size provided is not a valid, strictly positive number!");
-    process::exit(22)
+    exit(22)
   }
 
   // Returns the parameters!
@@ -194,4 +179,34 @@ fn handle_args() -> Parameters {
     input_file: path,
     sentence_size: size.to_owned(),
   }
+}
+
+fn main() {
+  // Gets the user-provided parameters.
+  let parameters = get_args();
+
+  let input_text = match read_to_string(parameters.input_file) {
+    Ok(content) => content,
+    Err(e) => {
+      eprintln!("There was a problem trying to read the file: {e}");
+      exit(1)
+    }
+  };
+
+  // Creates a Sentence Markov Chain based on the content of the file and
+  // generates a sentence of `n` words
+  let markov_chain = match SentenceMarkovChain::new(input_text) {
+    Ok(m) => m,
+    Err(e) => {
+      eprintln!(
+        "There was a problem trying to create the Markov Chain Sentence: {e}"
+      );
+      exit(22)
+    }
+  };
+  let markov_sentence =
+    markov_chain.generate_sentence(parameters.sentence_size);
+
+  // Prints the resulting sentence!
+  println!("Result:\n{markov_sentence}");
 }
