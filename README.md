@@ -9,11 +9,11 @@ and I decided to create this repo to write some code for those challenges. I
 will be solving them in no pre-defined order, with the languages I think fit the
 most for me.
 
-Even though I have early access to the github copilot, I would keep it disabled
+Even though I have early access to the GitHub copilot, I would keep it disabled
 when solving these problems to train my research and problem-solving skills
 
 Here is my progress so far (tip: you can sort this list using
-_[Github sort content](https://github.com/Mottie/GitHub-userscripts/wiki/GitHub-sort-content)_) :
+_[GitHub sort content](https://github.com/Mottie/GitHub-userscripts/wiki/GitHub-sort-content)_) :
 
 | Number        | Name                                                                      | Difficulty | Progress | Category                      |
 |---------------|---------------------------------------------------------------------------|:----------:|:--------:|-------------------------------|
@@ -39,11 +39,11 @@ _[Github sort content](https://github.com/Mottie/GitHub-userscripts/wiki/GitHub-
 | 019           | Booru (Image Board) Image Downloader                                      |     ​🟨     |    ❌    | Practical                     |
 | 020           | Image Converter                                                           |     ​🟨     |    ❌    | Practical                     |
 | 021           | ID3 Reader                                                                |     ​🟨     |    ❌    | Practical                     |
-| 022           | Sound Synthesis (sine, square, sawtooth...)                               |     ​​🟥     |    ❌    | Practical                     |
+| 022           | Sound Synthesis (sine, square, sawtooth... waves)                         |     ​​🟥     |    ❌    | Practical                     |
 | 022 - Bonus   | Real Time MIDI Playback (with custom instruments)                         |     ​​​🟪     |    ❌    | Practical                     |
 | 023           | C++ IDE Plugin for Sublime (or Atom)                                      |     ​​🟥     |    ❌    | Practical                     |
 | 024           | Simple Version Control (checkout, commit...)                              |     ​🟨     |    ❌    | Practical                     |
-| 025           | Imageboard                                                                |     🟩     |    ❌    | Practical                     |
+| 025           | Image board                                                               |     🟩     |    ❌    | Practical                     |
 | 026           | Password Manager                                                          |     ​🟨     |    ❌    | Practical                     |
 | 027           | Torrent Client (CLI or GUI)                                               |     ​​🟥     |    ❌    | Practical                     |
 | 028           | Booru Client                                                              |     ​​🟥     |    ❌    | Practical                     |
@@ -72,7 +72,7 @@ _[Github sort content](https://github.com/Mottie/GitHub-userscripts/wiki/GitHub-
 | 049           | Unicode Converter (UTF-8, 16LE, 32LE & 32BE)                              |     ​🟨     |    ❌    | Algorithmic                   |
 | 050           | Calculate the first n digits of π (pi)                                    |     🟩     |    ❌    | Algorithmic                   |
 | 051           | Least Squares Fitting Algorithm                                           |     ​🟨     |    ❌    | Algorithmic                   |
-| 052           | Find best period for making most money in stocks                          |     🟩     |    ❌    | Algorithmic                   |
+| 052           | Find the best period for making most money in stocks                      |     🟩     |    ❌    | Algorithmic                   |
 | 053           | Highest Prime Factor Calculator                                           |     🟩     |    ❌    | Algorithmic                   |
 | 054           | Hide & Extract Data in Images (Basic Steganography)                       |     ​🟨     |    ❌    | Algorithmic                   |
 | 054 - Bonus   | Include .gif support for the Basic Steganography                          |     ​​🟥     |    ❌    | Algorithmic                   |
@@ -92,7 +92,7 @@ _[Github sort content](https://github.com/Mottie/GitHub-userscripts/wiki/GitHub-
 | 068           | Sierpinski Triangle                                                       |     🟩     |    ❌    | Algorithmic                   |
 | 069           | Mandelbrot Set                                                            |     ​🟨     |    ❌    | Algorithmic                   |
 | 070           | OpenAI Gym Project                                                        |     ​​🟥     |    ❌    | Artificial Intelligence       |
-| 071           | AI for Roguelikes                                                         |     ​🟨     |    ❌    | Artificial Intelligence       |
+| 071           | AI for Rogue-likes                                                        |     ​🟨     |    ❌    | Artificial Intelligence       |
 | 072           | Sudoku or n-Puzzle Solver using A* algorithm                              |     ​🟨     |    ❌    | Artificial Intelligence       |
 | 073           | Connect-4 AI Player using Alpha-Beta Pruning                              |     ​🟨     |    ❌    | Artificial Intelligence       |
 | 074           | Basic Neural Network                                                      |     🟩     |    ❌    | Artificial Intelligence       |
@@ -105,7 +105,7 @@ _[Github sort content](https://github.com/Mottie/GitHub-userscripts/wiki/GitHub-
 | 080 - Bonus   | Terminal Shell but GUI                                                    |     ​​🟥     |    ❌    | Compiler/Interpreter/Debugger |
 | 081           | HTML & JavaScript Debugger                                                |     ​🟨     |    ❌    | Compiler/Interpreter/Debugger |
 | 082           | Interpreted LISP-Like Programming Language                                |     ​🟨     |    ❌    | Compiler/Interpreter/Debugger |
-| 083           | Application capable of mounting Filesystems (FUSE)                        |     ​​🟥     |    ❌    | Compiler/Interpreter/Debugger |
+| 083           | Application capable of mounting File systems (FUSE)                       |     ​​🟥     |    ❌    | Compiler/Interpreter/Debugger |
 | 084           | UART Game in Assembly                                                     |     ​🟨     |    ❌    | Compiler/Interpreter/Debugger |
 | 085           | Colored Pong Game as a UEFI file                                          |     ​​🟥     |    ❌    | Compiler/Interpreter/Debugger |
 | 086           | Designing an Esoteric Language                                            |     ​​🟥     |    ❌    | Compiler/Interpreter/Debugger |
@@ -134,7 +134,7 @@ _[Github sort content](https://github.com/Mottie/GitHub-userscripts/wiki/GitHub-
 | 106           | Tetris                                                                    |     ​🟨     |    ❌    | Games                         |
 | 107           | Snake                                                                     |     🟩     |    ❌    | Games                         |
 | 108           | Pipe Dreams                                                               |     ​🟨     |    ❌    | Games                         |
-| 109           | Pac Man, with Different Behaviors for each Ghosts                         |     ​🟨     |    ❌    | Games                         |
+| 109           | Pac-Man, with Different Behaviors for each Ghosts                         |     ​🟨     |    ❌    | Games                         |
 | 110           | Dragon Quest (Basic RPG Engine)                                           |     ​​🟥     |    ❌    | Games                         |
 | 111           | Rock Paper Scissors                                                       |     🟩     |    ❌    | Games                         |
 | 112           | First-Person Engine in OpenGL                                             |     ​​🟥     |    ❌    | Games                         |

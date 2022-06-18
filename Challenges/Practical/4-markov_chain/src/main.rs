@@ -1,15 +1,6 @@
-use rand::{
-  distributions::WeightedIndex,
-  prelude::{Distribution, SliceRandom},
-  thread_rng,
-};
+use rand::{distributions, prelude::*};
 use regex::Regex;
-use std::{
-  collections::HashMap,
-  fs,
-  io::{Error, ErrorKind},
-  process::exit,
-};
+use std::{collections::HashMap, fs, io, process};
 
 mod args;
 
@@ -22,7 +13,7 @@ struct SentenceMarkovChain {
 }
 
 impl SentenceMarkovChain {
-  pub fn new(text: String) -> Result<Self, Error> {
+  pub fn new(text: String) -> Result<Self, io::Error> {
     // A regex matching everything that is not a letter (can have diacritics),
     // a punctuation sign, or a space.
     let unwanted_chars = Regex::new(r"[^A-Za-zÀ-ÖØ-öø-ÿ\s!?\.,;-]").unwrap();
@@ -38,36 +29,39 @@ impl SentenceMarkovChain {
 
     // If there are no words, returns an error.
     if states.is_empty() {
-      return Err(Error::new(
-        ErrorKind::Other,
+      return Err(io::Error::new(
+        io::ErrorKind::Other,
         "The input text does not contain any words.",
       ));
     }
 
-    // Creates a vector of states shifted to the left, to easily find the word
-    // following another word.
-    let next_states: States = {
-      let mut shifted = states.clone();
-      shifted.rotate_left(1);
-      shifted
-    };
+    // Crates the HashMap of all the states and their probability to be followed
+    // by any other state.
+    let mut transitions: Transitions = HashMap::new();
 
-    let transitions: Transitions = {
-      let mut transitions: Transitions = HashMap::new();
-      for (i, word) in states.iter().enumerate() {
-        let next = String::from(&next_states[i]);
-        if transitions.get(word).eq(&None) {
-          transitions.insert(String::from(word), HashMap::new());
-        }
-
-        if transitions[word].get(&next).eq(&None) {
-          transitions.get_mut(word).unwrap().insert(next, 1);
-        } else {
-          *transitions.get_mut(word).unwrap().entry(next).or_default() += 1;
-        }
+    // For every words, gets the next word in the text, and adds one to its
+    // probability.
+    for (i, word) in states.iter().enumerate() {
+      // If the word is new in the transitions, inserts it.
+      if transitions.get(word).is_none() {
+        transitions.insert(String::from(word), HashMap::new());
       }
-      transitions
-    };
+
+      // Finds the word followed by the current word. If the current word is
+      // the last, gets the first element instead.
+      let next = String::from(
+        states.get(i + 1).unwrap_or_else(|| states.first().unwrap()),
+      );
+
+      // If the next word is new in the transtitions of `word`, inserts it
+      // with a default value of 1. Else, adds 1 to the probability of this
+      // word.
+      if transitions[word].get(&next).is_none() {
+        transitions.get_mut(word).unwrap().insert(next, 1);
+      } else {
+        *transitions.get_mut(word).unwrap().entry(next).or_default() += 1;
+      }
+    }
 
     // Removes all duplicate words in the `states` vector.
     states.sort();
@@ -82,7 +76,7 @@ impl SentenceMarkovChain {
 
   fn generate_sentence(&self, n: usize) -> String {
     // Initializes a random number generator.
-    let mut rng = thread_rng();
+    let mut rng = rand::thread_rng();
 
     // Choses a random word from all the possible states to use it as the
     // first word.
@@ -109,7 +103,8 @@ impl SentenceMarkovChain {
 
       // Creates a distribution for the random number generator.
       let distribution =
-        WeightedIndex::new(weighted_words.iter().map(|x| x.1)).unwrap();
+        distributions::WeightedIndex::new(weighted_words.iter().map(|x| x.1))
+          .unwrap();
 
       // Chose a random possible word based on the weighted distribution and
       // updates the current word with this new word.
@@ -133,7 +128,7 @@ fn main() {
     Ok(content) => content,
     Err(e) => {
       eprintln!("There was a problem trying to read the file: {e}");
-      exit(1)
+      process::exit(1)
     }
   };
 
@@ -145,7 +140,7 @@ fn main() {
       eprintln!(
         "There was a problem trying to create the Markov Chain Sentence: {e}"
       );
-      exit(22)
+      process::exit(22)
     }
   };
   let markov_sentence =

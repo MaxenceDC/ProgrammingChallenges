@@ -1,4 +1,4 @@
-# n°44 - FizzBuzz
+# N°44 - FizzBuzz
 
 What better way to start than with the classic programming challenge, FizzBuzz!
 I will be writing the code with Rust, as I am currently learning it. It should
@@ -13,9 +13,9 @@ First, I create a new directory that I name `44-fizzbuzz` inside the
 I can start writing code in the `main.rs` file, located inside the `src`
 directory.
 
-I then document myself on what a FizzBuzz program is, and how it works. I've
-already programmed a FizzBuzz program before, but it's always good to have a
-description of what the program should do.
+I then document myself on what a FizzBuzz program is, and how it works.
+Furthermore, I've already programmed a FizzBuzz program before, but it's always
+good to have a description of what the program should do.
 
 According to [this](https://wikipedia.org/wiki/Fizz_Buzz) Wikipedia article,
 FizzBuzz is a game for children to learn about counting. The rules are simple:
@@ -56,9 +56,9 @@ an argument and returns nothing.
 fn fizzbuzz(n: u32) {}
 ```
 
-Then, I write a simple for loop inside of this function, which loops over a
-range from 1 to n, included. To specify that I want the n to be included, I use
-the `..=` syntax.
+Then, I write a simple for loop inside this function, which loops over a range
+from 1 to n, included. To specify that I want the n to be included, I use the
+`..=` syntax.
 
 ```rs
 for i in 1..=n {
@@ -147,7 +147,7 @@ input/output.
 use std::io;
 ```
 
-Then, I create a new infinite loop inside the `main()` function that I label as
+Then, I create a new infinite loop inside the `main` function that I label as
 `take_input`. This loop will be used to take user input, until the said input is
 a positive integer.
 
@@ -159,11 +159,11 @@ fn main() {
 
 Inside this loop, I start by creating a mutable variable named `input` that
 holds a new empty string. I then ask the user to enter a number and I use the
-`io::stdin()` function to start taking user input and call the `read_line()`
-method on it. This method takes a mutable reference to a string, and binds the
-content of what the user typed to the given mutable variable. In case there is
-an error while reading from the standard input, it calls the except method and
-exits the program.
+`io::stdin` function to start taking user input and call the `read_line` method
+on it. This method takes a mutable reference to a string, and binds the content
+of what the user typed to the given mutable variable. In case there is an error
+while reading from the standard input, it calls the except method and exits the
+program.
 
 ```rs
 let mut input = String::new();
@@ -173,9 +173,9 @@ io::stdin()
     .expect("Failed to read line from the stdin");
 ```
 
-Then, to remove the new line character from the string, I use the `trim()`
-method which removes any whitespace characters from the beginning and end of the
-string and returns a **str**, not a String. Because it returns a str, I need to
+Then, to remove the new line character from the string, I use the `trim` method
+which removes any whitespace characters from the beginning and end of the string
+and returns a **`&str`**, not a String. Because it returns a `&str`, I need to
 use the `let` keyword to
 [shadow](https://en.wikipedia.org/wiki/Variable_shadowing) the variable `input`
 and assign it to the result of the `trim()` method.
@@ -185,10 +185,10 @@ let input = input.trim();
 ```
 
 Then, I check if the input is a good number. To do that, I match the result of
-the `parse()` method on the `input` string. If it's a `Ok`, then it's a good
-number, and I can call the fizzbuzz function with the number and break the loop.
-If it's a `Err`, then it means that the input is invalid and the programs tells
-the user to try again.
+the `parse` method on the `input` string. If it's a `Ok`, then it's a good
+number, and I can call the `fizzbuzz` function with the number and break the
+loop. If it's a `Err`, then it means that the input is invalid and the programs
+tells the user to try again.
 
 ```rust
 match input.parse::<u32>() {
@@ -201,7 +201,7 @@ match input.parse::<u32>() {
 ```
 
 And it's done! The program will now start by asking the user to enter a number,
-and will the execute the fizzbuzz function with the number!
+and will then execute the `fizzbuzz` function with the number!
 
 ### Final improved code
 
