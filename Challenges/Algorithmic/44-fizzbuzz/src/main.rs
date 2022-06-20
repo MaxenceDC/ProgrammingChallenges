@@ -16,8 +16,8 @@ fn main() {
     // Matches the input as a positive integer.
     // If the input is valid, the fizzbuzz function is called and the loop
     // labeled take_input breaks
-    // If the input is not a valid integer, it will print an error message
-    // and continue the loop to prompt the user for a new input
+    // Otherwise, it will print an error message and continue the loop to prompt
+    // the user for a new input
     match input.parse::<u32>() {
       Ok(i) => {
         fizzbuzz(i);

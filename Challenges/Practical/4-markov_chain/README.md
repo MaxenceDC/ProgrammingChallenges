@@ -57,14 +57,15 @@ represents the number of times the word is followed by another word (the
 I then need to implement the `new` method for the `SentenceMarkovChain`. This
 function will need to take a sentence as input, and return a new Option for a
 `SentenceMarkovChain` with `states` containing every possible words, and
-`transitions` containing the transitions probabilities. To do that, the function
-starts by removing any non-alphabetic/punctuation characters from the sentence
-using this regex:
+`transitions` containing the transitions probabilities. To do that, we start by
+removing any non-alphabetic/punctuation characters from the sentence using this
+regex:
 
 `/[^A-Za-zÀ-ÖØ-öø-ÿ\s!?\.,;-]/`
 
-Then, it will split the sentence into words, and add each word to the `states`
-Vector. Finally, it will make sure the sentence contains at least one word.
+Then, we will split the sentence into words, and add each word to the `states`
+Vector. Finally, we will make sure the sentence contains at least one word. If
+not, we return an `Err`.
 
 Here is the first part of the `new` method:
 
@@ -101,7 +102,7 @@ for (i, word) in states.iter().enumerate() {
 }
 ```
 
-Then, we find the `next` word in the sentence by getting the word at the index `i + 1`. If the index is out of bounds (and returns a `None` type), we instead get the first word in the states, using `unwrap_or_else` and a closure.
+Then, we find the `next` word in the sentence by getting the word at the index `i + 1`. If the index is out of bounds (and returns a `None` type), we instead get the first word in the states, using `unwrap_or_else` and a closure. We then add the `next` word to the `transitions` using the `entry` method, and modify the value of the `HashMap` entry by incrementing it by 1, or insert 1 if it doesn't exist yet. I like how with the Rust syntax, this code can nearly be read as a normal sentence!
 
 ```rs
 for (i, word) in states.iter().enumerate() {
@@ -109,19 +110,59 @@ for (i, word) in states.iter().enumerate() {
   let next = String::from(
     states.get(i + 1).unwrap_or_else(|| states.first().unwrap()),
   );
-  // - Snip -
+  
+  transitions
+    .get_mut(word)
+    .unwrap()
+    .entry(next)
+    .and_modify(|x| *x += 1)
+    .or_insert(1);
 }
 ```
 
-Lastly in this loop, we either add 1 to the `HashMap` value for the `next` word, or create a new `HashMap` with the `next` word as a key and a value of 1, depending on either or not the `next` word is already existing in the `HashMap`.
+And the final step for the `new` method is to remove the duplicates in the states and return the `SentenceMarkovChain` with the `states` and `transitions` filled. The reason why we sort the `states` is that the `dedup` method removes only consecutive duplicates, and we want to remove all duplicates.
 
 ```rs
-for (i, word) in states.iter().enumerate() {
-  // - Snip -
-  if transitions[word].get(&next).is_none() {
-    transitions.get_mut(word).unwrap().insert(next, 1);
-  } else {
-    *transitions.get_mut(word).unwrap().entry(next).or_default() += 1;
-  }
-}
+states.sort();
+states.dedup();
+
+Ok(Self {
+  states,
+  transitions,
+})
 ```
+
+Okay, so now we have a working `new` method. But let's visualize what it does. Consider the following sentence:
+
+```rs
+"Hello you How are you today"
+```
+
+Obviously this sentence is very short, so the output will be very similar to the input. But if we look at the `new` method, we can see that it creates a new `SentenceMarkovChain` with the following `states` and `transitions`:
+
+```json
+states: ["HELLO", "YOU", "HOW", "ARE", "TODAY"],
+transitions: {
+  "HELLO": {
+      "YOU": 1,
+  },
+  "HOW": {
+      "ARE": 1,
+  },
+  "ARE": {
+      "YOU": 1,
+  },
+  "YOU": {
+      "TODAY": 1,
+      "HOW": 1,
+  },
+  "TODAY": {
+      "HELLO": 1,
+  },
+},
+```
+
+We can see that the `states` contains each word without any duplicates, and the `transitions` contains all the probabilities. This can be better visualized with a graph:
+
+![Graph of the Markov Chain](images/Graph.png#gh-dark-mode-only)
+![Graph of the Markov Chain](images/GraphL.png#gh-light-mode-only)

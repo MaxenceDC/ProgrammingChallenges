@@ -43,24 +43,28 @@ impl SentenceMarkovChain {
     // probability.
     for (i, word) in states.iter().enumerate() {
       // If the word is new in the transitions, inserts it.
+      transitions.entry(word.to_owned());
+
       if transitions.get(word).is_none() {
-        transitions.insert(String::from(word), HashMap::new());
+        transitions.insert(word.to_owned(), HashMap::new());
       }
 
       // Finds the word followed by the current word. If the current word is
       // the last, gets the first element instead.
-      let next = String::from(
-        states.get(i + 1).unwrap_or_else(|| states.first().unwrap()),
-      );
+      let next = states
+        .get(i + 1)
+        .unwrap_or_else(|| states.first().unwrap())
+        .to_owned();
 
       // If the next word is new in the transtitions of `word`, inserts it
       // with a default value of 1. Else, adds 1 to the probability of this
       // word.
-      if transitions[word].get(&next).is_none() {
-        transitions.get_mut(word).unwrap().insert(next, 1);
-      } else {
-        *transitions.get_mut(word).unwrap().entry(next).or_default() += 1;
-      }
+      transitions
+        .get_mut(word)
+        .unwrap()
+        .entry(next)
+        .and_modify(|x| *x += 1)
+        .or_insert(1);
     }
 
     // Removes all duplicate words in the `states` vector.
@@ -74,7 +78,7 @@ impl SentenceMarkovChain {
     })
   }
 
-  fn generate_sentence(&self, n: usize) -> String {
+  fn generate(&self, n: usize) -> String {
     // Initializes a random number generator.
     let mut rng = rand::thread_rng();
 
@@ -84,7 +88,7 @@ impl SentenceMarkovChain {
 
     // Initializes the current word and the result sentence.
     let mut current_word = start_word.clone();
-    let mut sentence = String::from(&current_word);
+    let mut sentence = current_word.to_owned();
 
     // Appends `n` words following Markov Chain's rules using a loop.
     for _ in 1..n {
@@ -94,7 +98,7 @@ impl SentenceMarkovChain {
         let mut weights = vec![];
         self.transitions[&current_word].iter().for_each(|x| {
           if x.1 > &0 {
-            weights.push((String::from(x.0), *x.1))
+            weights.push((x.0.to_owned(), *x.1))
           }
         });
 
@@ -109,7 +113,7 @@ impl SentenceMarkovChain {
       // Chose a random possible word based on the weighted distribution and
       // updates the current word with this new word.
       current_word =
-        String::from(&weighted_words[distribution.sample(&mut rng)].0);
+        (&weighted_words[distribution.sample(&mut rng)].0).to_owned();
 
       // Adds a whitespace followed by the chosen word to the result sentence.
       sentence.push_str(format!(" {current_word}").as_str());
@@ -143,9 +147,9 @@ fn main() {
       process::exit(22)
     }
   };
-  let markov_sentence =
-    markov_chain.generate_sentence(parameters.sentence_size);
+  let markov_sentence = markov_chain.generate(parameters.sentence_size);
 
+  println!("{:#?}", markov_chain.transitions);
   // Prints the resulting sentence!
   println!("Result:\n{markov_sentence}");
 }
