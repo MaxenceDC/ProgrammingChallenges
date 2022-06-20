@@ -178,4 +178,4 @@ _[GitHub sort content](https://github.com/Mottie/GitHub-userscripts/wiki/GitHub-
 This is the list of projects in the order I completed/started them :
 
 1. [n°44 - FizzBuzz](./Challenges/Algorithmic/44-fizzbuzz/)
-2. [n°4 - Markov Chain Sentence Generator](./Challenges/Algorithmic/4-markov_chain/)
+2. [n°4 - Markov Chain Sentence Generator](./Challenges/Practical/4-markov_chain/)

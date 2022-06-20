@@ -137,7 +137,7 @@ fn fizzbuzz(n: u32) {
 You can see a commented version of this code inside `main.rs` file located in
 the `src` folder.
 
-## Going further : Taking user input
+## Going further: Taking user input
 
 To take user input in Rust, the most basic way is to use the `std::io` module.
 So the first line of my code is `use std::io;`, which imports the standard
@@ -203,42 +203,7 @@ match input.parse::<u32>() {
 And it's done! The program will now start by asking the user to enter a number,
 and will then execute the `fizzbuzz` function with the number!
 
-### Final improved code
+## Challenge finished
 
-```rs
-use std::io;
-
-fn main() {
-    'take_input: loop {
-        let mut input = String::new();
-        println!("Please enter a number: ");
-        io::stdin()
-            .read_line(&mut input)
-            .expect("Failed to read line from the stdin");
-        let input = input.trim();
-        match input.parse::<u32>() {
-            Ok(i) => {
-                fizzbuzz(i);
-                break 'take_input;
-            }
-            Err(..) => println!("Please enter a valid number!"),
-        };
-    }
-}
-
-fn fizzbuzz(n: u32) {
-    for i in 1..=n {
-        if i % 3 != 0 && i % 5 != 0 {
-            println!("{}", i);
-            continue;
-        }
-        if i % 3 == 0 {
-            print!("Fizz");
-        }
-        if i % 5 == 0 {
-            print!("Buzz");
-        }
-        println!("!");
-    }
-}
-```
+The final entirely commented source code can be found in the [`src`](./src/)
+folder.

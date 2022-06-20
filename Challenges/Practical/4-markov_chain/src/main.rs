@@ -82,29 +82,22 @@ impl SentenceMarkovChain {
     // Initializes a random number generator.
     let mut rng = rand::thread_rng();
 
-    // Choses a random word from all the possible states to use it as the
-    // first word.
-    let start_word = self.states.choose(&mut rng).unwrap();
-
     // Initializes the current word and the result sentence.
-    let mut current_word = start_word.clone();
-    let mut sentence = current_word.to_owned();
+    let mut current_word = self.states.choose(&mut rng).unwrap();
+    let mut sentence = vec![current_word.to_owned()];
 
     // Appends `n` words following Markov Chain's rules using a loop.
     for _ in 1..n {
+      // Creates a weighted vector of possible words based on their
+      // probability to be the next word, based on the current word.
       let weighted_words = {
-        // Creates a weighted vector of possible words based on their
-        // probability to be the next word.
-        let mut weights = vec![];
-        self.transitions[&current_word].iter().for_each(|x| {
-          if x.1 > &0 {
-            weights.push((x.0.to_owned(), *x.1))
-          }
-        });
+        let mut weights = Vec::new();
+        self.transitions[current_word]
+          .iter()
+          .for_each(|x| weights.push((x.0, x.1)));
 
         weights
       };
-
       // Creates a distribution for the random number generator.
       let distribution =
         distributions::WeightedIndex::new(weighted_words.iter().map(|x| x.1))
@@ -112,23 +105,22 @@ impl SentenceMarkovChain {
 
       // Chose a random possible word based on the weighted distribution and
       // updates the current word with this new word.
-      current_word =
-        (&weighted_words[distribution.sample(&mut rng)].0).to_owned();
+      current_word = weighted_words[distribution.sample(&mut rng)].0;
 
-      // Adds a whitespace followed by the chosen word to the result sentence.
-      sentence.push_str(format!(" {current_word}").as_str());
+      // Pushes the word to the sentence vector.
+      sentence.push(current_word.to_owned());
     }
 
-    // Returns the final sentence!
-    sentence
+    // Returns the final sentence separated by spaces!
+    sentence.join(" ")
   }
 }
 
 fn main() {
   // Gets the user-provided parameters.
-  let parameters = args::get_args();
+  let params = args::get_args();
 
-  let input_text = match fs::read_to_string(parameters.input_file) {
+  let input_text = match fs::read_to_string(params.input_file) {
     Ok(content) => content,
     Err(e) => {
       eprintln!("There was a problem trying to read the file: {e}");
@@ -139,7 +131,7 @@ fn main() {
   // Creates a Sentence Markov Chain based on the content of the file and
   // generates a sentence of `n` words
   let markov_chain = match SentenceMarkovChain::new(input_text) {
-    Ok(m) => m,
+    Ok(s) => s,
     Err(e) => {
       eprintln!(
         "There was a problem trying to create the Markov Chain Sentence: {e}"
@@ -147,9 +139,9 @@ fn main() {
       process::exit(22)
     }
   };
-  let markov_sentence = markov_chain.generate(parameters.sentence_size);
 
-  println!("{:#?}", markov_chain.transitions);
+  
   // Prints the resulting sentence!
-  println!("Result:\n{markov_sentence}");
+  let sentence = markov_chain.generate(params.sentence_size);
+  println!("Result:\n{sentence}");
 }

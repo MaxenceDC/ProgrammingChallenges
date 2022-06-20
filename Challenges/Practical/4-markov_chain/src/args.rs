@@ -20,7 +20,7 @@ pub fn get_args() -> Parameters {
   // Stores the arguments provided by the user in a Vector of Strings
   let args = std::env::args().collect::<Vec<String>>();
 
-  if args.contains(&"-h".to_owned()) {
+  if args.contains(&"-h".to_owned()) || args.contains(&"--help".to_owned()) {
     print!("{HELP_MESSAGE}");
     process::exit(0)
   }
