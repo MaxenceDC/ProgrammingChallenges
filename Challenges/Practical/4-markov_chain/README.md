@@ -140,7 +140,7 @@ Okay, so now we have a working `new` method. But let's visualize what it does. C
 
 Obviously this sentence is very short, so the output will be very similar to the input. But if we look at the `new` method, we can see that it creates a new `SentenceMarkovChain` with the following `states` and `transitions`:
 
-```json
+```rs
 states: ["HELLO", "YOU", "HOW", "ARE", "TODAY"],
 transitions: {
   "HELLO": {
