@@ -159,20 +159,20 @@ input. But if we look at the `new` method, we can see that it creates a new
 states: ["HELLO", "YOU", "HOW", "ARE", "TODAY"],
 transitions: {
   "HELLO": {
-      "YOU": 1,
+    "YOU": 1,
   },
   "HOW": {
-      "ARE": 1,
+    "ARE": 1,
   },
   "ARE": {
-      "YOU": 1,
+    "YOU": 1,
   },
   "YOU": {
-      "TODAY": 1,
-      "HOW": 1,
+    "TODAY": 1,
+    "HOW": 1,
   },
   "TODAY": {
-      "HELLO": 1,
+    "HELLO": 1,
   },
 },
 ```
