@@ -1,4 +1,4 @@
-# Programming Challenges v4.0
+# Pro/g/ramming Challenges v4.0
 
 ![Image showing all the 145 challenges](Images/challenges.png)
 [Image source](https://github.com/JeremyJaydan/programming-challenges)
