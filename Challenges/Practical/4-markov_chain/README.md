@@ -297,14 +297,14 @@ BECAUSE IT IS THERE ANYONE WHO HAS ANY RIGHT
 
 Which makes no sense, but is still (kind of) syntactically correct. Plus, this
 sentence does not appear anywhere in the input text, so it created a brand-new
-sentence! *The bigger the input is, the better the sentence will be.*
+sentence! *Usually, the larger the input, the better the resulting sentence.*
 
 With that, we can say the challenge is completed!
 
 ### Final Code
 
-The final code can be found in the [`main.rs`](src/main.rs) file, inside the `src`
-folder.
+The final code can be found in the [`main.rs`](src/main.rs) file, inside the
+`src` folder.
 
 ## Going further: Using arguments
 
@@ -321,13 +321,13 @@ running the program, the user will need to append two arguments like this:
 
 ### The `args` module
 
-To handle those arguments, we create a new module, `args` in another file
-(`src/args.rs`), and then import it in the main file using the `mod` keyword.
-This module contains one public function called `get_args` that will return a
-`Parameters` structure with the path and the number in it. In this function, we
-start by collecting the arguments in a `Vec` of `Strings` using the `env::args`
-method of the standard library. We need to do four checks before processing the
-arguments:
+To handle those arguments, we create a new module `args` in a new file
+(`src/args.rs`), and then import it in the `main.rs` file using the `mod` 
+keyword. This module contains one public function called `get_args` that will 
+return a `Parameters` structure with the path and the number in it. In this 
+function, we start by collecting the arguments in a `Vec` of `Strings` using the 
+`env::args` method of the standard library. We need to do four checks before 
+processing the arguments:
 
   1. Check if the arguments contain **-h** or **--help**.
   2. Check if there are not enough or too many arguments.

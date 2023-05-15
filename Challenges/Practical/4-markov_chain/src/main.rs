@@ -140,7 +140,6 @@ fn main() {
     }
   };
 
-  
   // Prints the resulting sentence!
   let sentence = markov_chain.generate(params.sentence_size);
   println!("Result:\n{sentence}");

@@ -7,10 +7,10 @@ This is my take on all the challenges of this image I found browsing the
 Internet. It seemed really interesting for me to try and beat some challenges
 and I decided to create this repo to write some code for those challenges. I
 will be solving them in no pre-defined order, with the languages I think fit the
-most for me.
+best for me.
 
-Even though I have early access to the GitHub copilot, I would keep it disabled
-when solving these problems to train my research and problem-solving skills
+Even though I have early access to the GitHub copilot, I will keep it disabled
+when solving these problems to practice my research and problem-solving skills
 
 Here is my progress so far (tip: you can sort this list using
 _[GitHub sort content](https://github.com/Mottie/GitHub-userscripts/wiki/GitHub-sort-content)_) :
@@ -20,7 +20,7 @@ _[GitHub sort content](https://github.com/Mottie/GitHub-userscripts/wiki/GitHub-
 | 001           | Download Manager                                                          |     ​🟨     |    ❌    | Practical                     |
 | 002           | Elastic Producer/Consumer Task Queue                                      |     ​🟨     |    ❌    | Practical                     |
 | 003           | IRC Client                                                                |     ​🟨     |    ❌    | Practical                     |
-| 004           | [Markov Chain Sentence Generator](./Challenges/Practical/4-markov_chain/) |     🟩     |    ​​⏳    | Practical                     |
+| 004           | [Markov Chain Sentence Generator](./Challenges/Practical/4-markov_chain/) |     🟩     |    ​✅    | Practical                     |
 | 005           | English Sentence Parser                                                   |     ​🟨     |    ❌    | Practical                     |
 | 006           | MIDI Player & Editor                                                      |     ​🟨     |    ❌    | Practical                     |
 | 007           | Stock Market Simulator (Yahoo! Data)                                      |     ​🟨     |    ❌    | Practical                     |
@@ -88,9 +88,9 @@ _[GitHub sort content](https://github.com/Mottie/GitHub-userscripts/wiki/GitHub-
 | 064           | Encrypt & Decrypt (from the rumkin.com collection)                        |     🟩     |    ❌    | Algorithmic                   |
 | 065           | YouTube to MP3 Converter                                                  |     🟩     |    ❌    | Algorithmic                   |
 | 066           | Text to Hexadecimal & Binary Converter                                    |     🟩     |    ❌    | Algorithmic                   |
-| 067           | Calculate the first 1000 digits of π (pi) iteratively                     |     ​🟨     |    ❌    | Algorithmic                   |
+| 067           | Calculate the first 1000 digits of $\pi$ iteratively                      |     ​🟨     |    ❌    | Algorithmic                   |
 | 068           | Sierpinski Triangle                                                       |     🟩     |    ❌    | Algorithmic                   |
-| 069           | Mandelbrot Set                                                            |     ​🟨     |    ❌    | Algorithmic                   |
+| 069           | [Mandelbrot Set](./Challenges/Algorithmic/69-mandelbrot/)                 |     ​🟨     |    ​​✅    | Algorithmic                   |
 | 070           | OpenAI Gym Project                                                        |     ​​🟥     |    ❌    | Artificial Intelligence       |
 | 071           | AI for Rogue-likes                                                        |     ​🟨     |    ❌    | Artificial Intelligence       |
 | 072           | Sudoku or n-Puzzle Solver using A* algorithm                              |     ​🟨     |    ❌    | Artificial Intelligence       |
@@ -122,7 +122,7 @@ _[GitHub sort content](https://github.com/Mottie/GitHub-userscripts/wiki/GitHub-
 | 095           | Real-Time Fast Fourier Transform Spectrum Visualizer                      |     ​​🟥     |    ❌    | Emulation/Modeling            |
 | 096           | Complimentary Color Generator based on an Input Color                     |     🟩     |    ❌    | Emulation/Modeling            |
 | 097           | 5-Color Scheme Generator from any input image                             |     ​🟨     |    ❌    | Emulation/Modeling            |
-| 098           | General Lambert's-Problem Solver 🚀                                       |     🟩     |    ❌    | Emulation/Modeling            |
+| 098           | General Lambert's-Problem Solver 🚀                                       |     ​​​🟪     |    ❌    | Emulation/Modeling            |
 | 099           | TI-86 Emulator                                                            |     ​​🟥     |    ❌    | Emulation/Modeling            |
 | 099 - Bonus   | TI-86 Emulator with Option to Create Programs                             |     ​​🟥     |    ❌    | Emulation/Modeling            |
 | 100           | N-Body Simulator with Merging Particles                                   |     ​🟨     |    ❌    | Emulation/Modeling            |
@@ -179,3 +179,4 @@ This is the list of projects in the order I completed/started them :
 
 1. [n°44 - FizzBuzz](./Challenges/Algorithmic/44-fizzbuzz/)
 2. [n°4 - Markov Chain Sentence Generator](./Challenges/Practical/4-markov_chain/)
+3. [n°69 - Mandelbrot Set](./Challenges/Algorithmic/69-mandelbrot/)

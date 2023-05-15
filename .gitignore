@@ -10,4 +10,7 @@
 **/.rustfmt.toml
 
 # Markov Chain
-**/4-markov_chain/tests/
+**/4-markov_chain/input/
+
+# Mandelbrot Set
+**/69-mandelbrot/images/mandelbrot_*
