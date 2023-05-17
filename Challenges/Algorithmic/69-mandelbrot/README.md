@@ -14,18 +14,17 @@ I already knew this recurrence equation that leads to the creation of the
 wonderful Mandelbrot Set, first rendered in 1978 by Robert W. Brooks and Peter
 Matelski in 1978 :
 
-$z_{n+1}=z_n^2+c$, with $z_0=0$
+$z_{n+1}=z_n^2+c$, with $z_0=0$ and $c$ a complex number
 
 But how exactly does it work, how can I use it in my program? Well, after doing
-a bit of research on Wikipedia and reading
-[this](https://mathworld.wolfram.com/MandelbrotSet.html) very interesting
-article, I had a grasp of how this formula is used. 
+a bit of research on [Wikipedia](https://en.wikipedia.org/wiki/Mandelbrot_set) and reading [this](https://mathworld.wolfram.com/MandelbrotSet.html) very interesting article, I had a grasp of how this formula is used. 
 
 First, we need to understand what is the Mandelbrot Set. As its name suggests,
 this mathematical object is the set of complex numbers $c$ for which the
 recurrence relation $z_n$ (defined above) doesn't diverge to infinity. This very
 simple formula yields the amazing Mandelbrot Set fractal when plotted on a 2D 
-plane!
+plane, especially when accounting for the numbers of iterations it took for the
+equation to diverge!
 
 ## Solving the challenge
 
@@ -79,4 +78,14 @@ Now that I had an image with the right amount of pixels, with each of them repre
 
 ### Rendering the Mandelbrot Set
 
-I first defined a function `get_pixel` that would determine if a given complex number $c$ belonged to the set or not, and return a `LumaA` (transparent grayscale) pixel based on the numbers of iteration it took for $c$ to diverge. I then needed a way to represent a complex number inside my code. That's why I added the `num-complex` crate and imported it using the `use` keyword in the `main.rs` file. Inside the `get_pixel` function, I started by declaring two variables 
+I first defined a function `get_pixel` that would determine if a given complex 
+number $c$ (determined from two givens `px` and `py` coordinated in the image) 
+belonged to the set or not, and return a `LumaA` (transparent grayscale) pixel 
+based on the numbers of iteration it took for $c$ to diverge. I then needed a 
+way to represent a complex number inside my code. That's why I added the 
+`num-complex` crate and imported it using the `use` keyword in the `main.rs` 
+file. Inside the `get_pixel` function, I started by declaring three variables:
+
+- `i`, mutable, to keep count of the numbers of iterations that happened before $z_n(c)$ bailed out.
+- `z`, also mutable, which is basically the current $z_n$.
+- `c`, the complex number represented at position `px` and `py` in the image.

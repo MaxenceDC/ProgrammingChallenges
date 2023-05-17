@@ -1,13 +1,13 @@
 use image::{GrayAlphaImage, LumaA};
-use num_complex::Complex;
+use num_complex::Complex as C;
 use std::io::{stdout, Write};
 
 // RANGE is the range of the complex plane to be plotted.
 const RANGE: ((f64, f64), (f64, f64)) = ((-2., 0.47), (1.12, -1.12));
 // RESOLUTION is the number of pixels per unit.
 const RESOLUTION: f64 = 2048.;
-// PRECISION corresponds to max_iterations.
-const PRECISION: usize = 64;
+// PRECISION corresponds to the maximum number of iterations.
+const PRECISION: u32 = 255;
 
 fn main() {
   // The width and height of the image scaled with SIZE.
@@ -23,7 +23,7 @@ fn main() {
     *pixel = get_pixel(x, y, width, height);
 
     // Prints the progress every 5% completed.
-    if y % (height / 20) == 0 && x==0 {
+    if y % (height / 20) == 0 && x == 0 {
       print!("\r{}%", (y as f64 / height as f64 * 100.).round());
       stdout().flush().unwrap();
     }
@@ -37,12 +37,12 @@ fn main() {
 
 fn get_pixel(px: u32, py: u32, w: u32, h: u32) -> LumaA<u8> {
   // Creates a complex number c based on the x and y coordinates of the pixel.
-  let c = Complex::new(
+  let c = C::new(
     px as f64 / w as f64 * ((RANGE.0).1 - (RANGE.0).0) + (RANGE.0).0,
     py as f64 / h as f64 * ((RANGE.1).1 - (RANGE.1).0) + (RANGE.1).0,
   );
   // Creates z with its first value z0 being 0+0i.
-  let mut z = Complex::new(0., 0.);
+  let mut z = C::new(0., 0.);
   // Declares i to keep track of the number of iterations it took for the number
   // to diverge.
   let mut i = 0;
@@ -54,7 +54,14 @@ fn get_pixel(px: u32, py: u32, w: u32, h: u32) -> LumaA<u8> {
     i += 1;
   }
 
+  // Smoothes i for a better result.
+  let mut smooth_i = i as f64 + 1. - z.norm().ln().ln() / 2f64.ln();
+  // When z.norm().ln() is negative (norm < 1), z.norm().ln().ln() yields NaN.
+  if smooth_i.is_nan() {
+    smooth_i = PRECISION as f64
+  }
+
   // The resulting color is the number of iterations it took for the number to
   // diverge scaled to lie between 0 and 255.
-  LumaA([((i as f64 / PRECISION as f64) * 255.).round() as u8; 2])
+  LumaA([((smooth_i / PRECISION as f64) * 255.).round() as u8; 2])
 }

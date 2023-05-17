@@ -88,8 +88,8 @@ impl SentenceMarkovChain {
 
     // Appends `n` words following Markov Chain's rules using a loop.
     for _ in 1..n {
-      // Creates a weighted vector of possible words based on their
-      // probability to be the next word, based on the current word.
+      // Creates a weighted vector of possible words based on their probability
+      // to be the next word, based on the current word.
       let weighted_words = {
         let mut weights = Vec::new();
         self.transitions[current_word]
